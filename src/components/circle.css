@@ -1,0 +1,58 @@
+.semi-donut {
+  
+
+  width: var(--width);
+  height: var(--height);
+  /* border: 1px solid red; */
+  /* background-color: #c3c3c3; */
+  position: relative;
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  --percentage: 0;
+  --fill: #00ACC1;
+  --width: 200px;
+  --height: 100px;
+  --background: #f0f0f0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--width);
+    height: calc( var(--height) * 2 ) ;
+    border: 24px solid;
+    border-color: var(--background) var(--background) var(--fill) var(--fill);
+    border-radius: 50%;
+    transform: rotate( calc(1deg * ( -45 + var(--percentage) * 1.8 )) );
+    box-sizing: border-box;
+    animation : fillAnimation 1s ease-in;
+  }
+
+  .label {
+    color: #1e1c1c;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    svg {
+      width: 24px;
+      height: 24px;
+      color: #08bd08;
+    }
+  }
+}
+
+@keyframes fillAnimation{
+  0%{transform : rotate(-45deg);}
+  50%{transform: rotate(135deg);}
+}
+
+@keyframes fillGraphAnimation{
+  0%{transform: rotate(0deg);}
+  50%{transform: rotate(180deg);}
+}
